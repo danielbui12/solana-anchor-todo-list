@@ -16,7 +16,7 @@ var fs = require('fs');
 const YOUR_WALLET_ADDRESS = '7fbPDP3jAbkEVf7QAAxhBKHcbfLPttPkyXJNNkv62Xvd';
 const SHYFT_API_KEY = '';
 const network = 'devnet';
-const collectionAddress = 'CcugSsxmGiXK1V7iScYK9zGYjxbjKuJhjEU1L2rptXwE';
+const collectionAddress = '9KD71uAN9HTPovRoYq7Zk7hJVacCQh7cPNXvw89Vsm1g';
 const merkleTree = 'X5YZxkn4MmXqXwfJfmGvfucY2Ch217K59BURRVaHB5U';
 
 async function createMerkleTree() {
@@ -54,10 +54,13 @@ async function mintCollectionNFT() {
     'attributes',
     JSON.stringify([{ trait_type: 'owner', value: 'Lisa' }]),
   );
+  
   formdata.append(
     'external_url',
     'https://mindforgex.relipa.vn/channel/lalisa/album/lisa-aniversary',
   );
+  formdata.append("max_supply", "0");
+  formdata.append("royalty", "5");
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   formdata.append('image', blob, 'images.jpg');
@@ -103,17 +106,15 @@ async function mintCompressedNFT() {
 }
 
 /**
- * @api: https://docs.shyft.to/start-hacking/nft/compressed-nft#read-wallet-cnfts
+ * @api: https://docs.shyft.to/start-hacking/nft/compressed-nft#get-sol-v1-nft-compressed-read_all
+ * &collection${collectionAddress}&
  */
 const fetchNFTsByWallet = () => {
-  const nftUrl = `https://api.shyft.to/sol/v2/nft/compressed/read_all?network=${network}&wallet_address=${YOUR_WALLET_ADDRESS}&collection${collectionAddress}&&refresh=true&page=1&size=1`;
-  axios({
-    url: nftUrl,
-    method: 'GET',
+  const nftUrl = `https://api.shyft.to/sol/v1/nft/read_all?network=${network}&wallet_address=${YOUR_WALLET_ADDRESS}`;
+  axios.get(nftUrl, {
     headers: {
-      'Content-Type': 'application/json',
       'x-api-key': SHYFT_API_KEY,
-    },
+    }
   })
     .then((res) => {
       console.log(res.data);
@@ -126,5 +127,8 @@ const fetchNFTsByWallet = () => {
 
 // createMerkleTree();
 // mintCollectionNFT();
-mintCompressedNFT();
-// fetchNFTsByWallet();
+// mintCompressedNFT();
+
+// https://translator.shyft.to/tx/47QapviLyXwfi2r1vphURoV7dEZ2UvBxBZGTAwYGobCTVN4B2E7LS79w8hFtazQwzd9ccfPrWhBhQVChxct8AFAG?cluster=devnet
+
+fetchNFTsByWallet();
