@@ -17,20 +17,19 @@
   "properties": {
     "files": [
       {
-        "uri": "https://www.arweave.net/abcd5678?ext=png",
+        "uri": "https://dummyimage.com/300.png/09f/fff",
         "type": "image/png"
       },
       {
-        "uri": "https://watch.videodelivery.net/9876jkl",
+        "uri": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "type": "unknown",
         "cdn": true
       },
       {
-        "uri": "https://www.arweave.net/efgh1234?ext=mp4",
+        "uri": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "type": "video/mp4"
       }
     ],
     "category": "video"
   }
 }
-
