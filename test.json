@@ -16,23 +16,5 @@
       }
     ],
     "category": "video",
-
-    // @deprecated
-    // Do not use - may be removed in a future release.
-    // Use on-chain data instead.
-    "collection": {
-      "name": "Solflare X NFT",
-      "family": "Solflare"
-    },
-
-    // @deprecated
-    // Do not use - may be removed in a future release.
-    // Use on-chain data instead.
-    "creators": [
-      {
-        "address": "xEtQ9Fpv62qdc1GYfpNReMasVTe9YW5bHJwfVKqo72u",
-        "share": 100
-      }
-    ]
   }
 }
