@@ -107,10 +107,10 @@ async function mintCompressedNFT() {
 
 /**
  * @api: https://docs.shyft.to/start-hacking/nft/compressed-nft#get-sol-v1-nft-compressed-read_all
- * &collection${collectionAddress}&
+ * 
  */
 const fetchNFTsByWallet = () => {
-  const nftUrl = `https://api.shyft.to/sol/v1/nft/read_all?network=${network}&wallet_address=${YOUR_WALLET_ADDRESS}`;
+  const nftUrl = `https://api.shyft.to/sol/v1/nft/compressed/read_all?network=${network}&wallet_address=${YOUR_WALLET_ADDRESS}&collection=${collectionAddress}`;
   axios.get(nftUrl, {
     headers: {
       'x-api-key': SHYFT_API_KEY,
@@ -128,7 +128,4 @@ const fetchNFTsByWallet = () => {
 // createMerkleTree();
 // mintCollectionNFT();
 // mintCompressedNFT();
-
-// https://translator.shyft.to/tx/47QapviLyXwfi2r1vphURoV7dEZ2UvBxBZGTAwYGobCTVN4B2E7LS79w8hFtazQwzd9ccfPrWhBhQVChxct8AFAG?cluster=devnet
-
 fetchNFTsByWallet();
